@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>AI Strategies & Toolkits | 20 Must-Have Marketing AIs | GrowthSynapse</title>
+    <link rel="icon" type="image/png" href="./logo.png">
+    <meta name="description" content="Discover the ultimate list of 20 AI tools for Digital Marketing. Direct links, exact app icons, and human-first strategies to scale your revenue.">
+    
+    <style>
+        /* Modern Tech & Premium AI Theme */
+        :root {
+            --bg-color: #f8fafc;
+            --primary: #0f172a;
+            --secondary: #8b5cf6; 
+            --accent: #d946ef; 
+            --text-main: #334155;
+            --text-light: #475569;
+            --card-bg: #ffffff;
+            --border-light: #e2e8f0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; }
+        
+        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.7; overflow-x: hidden; }
+
+        /* Navigation */
+        header {
+            background: #ffffff;
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); text-decoration: none; }
+        .logo span { color: var(--secondary); }
+        .back-btn { text-decoration: none; color: var(--text-main); font-weight: 600; display: flex; align-items: center; gap: 5px; transition: color 0.3s; }
+        .back-btn:hover { color: var(--secondary); }
+
+        /* Animations */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes glowBtn { 0% { box-shadow: 0 0 5px var(--secondary); } 50% { box-shadow: 0 0 15px var(--accent); } 100% { box-shadow: 0 0 5px var(--secondary); } }
+        @keyframes popIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        
+        .animate-up { opacity: 0; animation: fadeInUp 0.6s ease-out forwards; }
+
+        /* Layout */
+        .container { max-width: 1400px; margin: 4rem auto; padding: 0 2rem; }
+        
+        .header-section { text-align: center; margin-bottom: 4rem; }
+        .header-section h1 { font-size: 3.5rem; color: var(--primary); margin-bottom: 1.5rem; line-height: 1.2; letter-spacing: -1px; }
+        .header-section p { font-size: 1.2rem; color: var(--text-light); max-width: 800px; margin: 0 auto; }
+
+        /* 20 AI Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        /* Tool Card Design (Interactive) */
+        .tool-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 1px solid var(--border-light);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -10px rgba(139, 92, 246, 0.2);
+            border-color: #c4b5fd;
+        }
+
+        /* App Icon Display Section */
+        .card-media {
+            position: relative;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Google High-Res Favicon as App Icon */
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 12px;
+            object-fit: contain;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 2;
+        }
+        
+        .tool-card:hover .app-icon { transform: scale(1.15) translateY(-5px); }
+
+        /* SVG Overlay Diagram */
+        .diagram-overlay {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 40px;
+            height: 40px;
+            z-index: 3;
+        }
+
+        /* Card Content */
+        .card-content {
+            padding: 1.8rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-badge { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); margin-bottom: 0.5rem; }
+        .tool-title { font-size: 1.5rem; color: var(--primary); margin-bottom: 0.8rem; }
+        .tool-desc { font-size: 1rem; color: var(--text-light); margin-bottom: 1.5rem; line-height: 1.6; flex-grow: 1; }
+        
+        .click-hint { font-size: 0.9rem; color: var(--secondary); font-weight: bold; display: flex; align-items: center; gap: 5px; }
+
+        /* Modal Overlay */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; z-index: 2000; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        
+        .modal-box { background: #ffffff; width: 90%; max-width: 750px; border-radius: 20px; position: relative; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); display: flex; flex-direction: column; max-height: 90vh; overflow: hidden; }
+        .modal-overlay.active .modal-box { animation: popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        
+        .close-btn { position: absolute; top: 15px; right: 15px; background: rgba(255,255,255,0.95); border: none; width: 35px; height: 35px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; color: var(--primary); transition: 0.2s; z-index: 10; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .close-btn:hover { background: #ef4444; color: #fff; transform: scale(1.1); }
+
+        /* Banner for Modal with App Icon */
+        .modal-header-banner { width: 100%; height: 180px; display: flex; align-items: center; justify-content: center; position: relative; }
+        .modal-app-icon { width: 100px; height: 100px; background: #ffffff; border-radius: 25px; padding: 15px; object-fit: contain; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+        
+        .modal-body { padding: 2.5rem; overflow-y: auto; }
+        .modal-category { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); margin-bottom: 0.5rem; display: block; }
+        .modal-title { font-size: 2.2rem; color: var(--primary); margin-bottom: 1.5rem; }
+        
+        .modal-text { font-size: 1.1rem; color: var(--text-main); line-height: 1.8; margin-bottom: 2rem; }
+        .modal-text h4 { font-size: 1.3rem; color: var(--primary); margin: 1.5rem 0 0.5rem 0; border-bottom: 2px solid var(--border-light); padding-bottom: 5px; display: inline-block; }
+        .modal-text p { margin-bottom: 1rem; }
+        .modal-text ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+        .pro-tip { background: #ecfdf5; border-left: 4px solid #10b981; padding: 1rem 1.5rem; border-radius: 0 8px 8px 0; margin-top: 1.5rem; font-style: italic; color: #065f46; }
+
+        /* Launch Button in Modal */
+        .modal-action-btn { display: inline-flex; align-items: center; justify-content: center; width: 100%; padding: 15px; background: linear-gradient(90deg, var(--secondary), var(--accent)); color: white; text-decoration: none; font-size: 1.1rem; font-weight: bold; border-radius: 12px; transition: all 0.3s ease; animation: glowBtn 3s infinite; margin-top: 1rem; }
+        .modal-action-btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
+
+        .svg-defs { display: none; }
+
+        /* Mobile Responsiveness Fixes */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+                gap: 15px;
+                text-align: center;
+            }
+            .container {
+                padding: 0 1.5rem;
+                margin: 2rem auto;
+            }
+            .header-section h1 {
+                font-size: 2.2rem;
+            }
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            .modal-box {
+                width: 95%;
+                max-height: 85vh;
+            }
+            .modal-body {
+                padding: 1.5rem;
+            }
+            .modal-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SVG Library for Category Diagrams -->
+    <svg class="svg-defs">
+        <defs>
+            <g id="icon-text"><path fill="currentColor" d="M4 6h16v2H4zm0 5h16v2H4zm0 5h10v2H4z"/></g>
+            <g id="icon-image"><path fill="currentColor" d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></g>
+            <g id="icon-video"><path fill="currentColor" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></g>
+            <g id="icon-seo"><path fill="currentColor" d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></g>
+            <g id="icon-analytics"><path fill="currentColor" d="M3 3v18h18v-2H5V3H3zm6 14l-4-4 4-4 4 4 4-4 4 4v-4l-4-4-4 4-4-4-4 4v4z"/></g>
+        </defs>
+    </svg>
+
+    <header>
+        <a href="./index.html" class="logo" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+            <img src="./logo.png" alt="GrowthSynapse Logo" style="width: 40px; height: 40px; object-fit: contain; border-radius: 8px;">
+            GrowthSynapse<span> .AI</span>
+        </a>
+        <a href="./index.html" class="back-btn">← Back to Home</a>
+    </header>
+
+    <main class="container">
+        
+        <div class="header-section animate-up">
+            <h1>The Marketer's AI Arsenal</h1>
+            <p>20 powerful AI strategies. Click on any tool to unlock the deep-dive strategy, learn how it scales your revenue, and launch it instantly.</p>
+        </div>
+
+        <div class="tools-grid" id="toolsGrid">
+            <!-- Cards generated via JavaScript -->
+        </div>
+
+    </main>
+
+    <!-- Modal (Popup) Structure -->
+    <div class="modal-overlay" id="toolModal">
+        <div class="modal-box">
+            <button class="close-btn" onclick="closeModal()">×</button>
+            <div class="modal-header-banner" id="modalBanner">
+                <img src="" alt="Tool App Icon" class="modal-app-icon" id="modalAppIcon">
+            </div>
+            <div class="modal-body">
+                <span class="modal-category" id="modalCategory">Category</span>
+                <h2 class="modal-title" id="modalTitle">Tool Title</h2>
+                <div class="modal-text" id="modalText"></div>
+                <a href="#" target="_blank" class="modal-action-btn" id="modalLink">Launch Tool Now &rarr;</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data and Logic -->
+    <script>
+        // Database of 20 AI Tools.
+        // Google Favicon API (sz=128) is used to pull the official high-res app icon.
+        const toolsData = [
+            {
+                id: 'chatgpt', title: 'ChatGPT', domain: 'openai.com',
+                category: 'Content / Strategy', icon: 'icon-text', color: '#10a37f', bg: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)',
+                shortDesc: 'Digital marketing ka foundation. Brainstorming, ad copy, aur coding ke liye ultimate 24/7 assistant.', link: 'https://chat.openai.com/',
+                details: `<h4>Overview</h4><p>ChatGPT is the engine of modern digital marketing. It processes natural language to generate ideas, write code, and structure massive amounts of text in seconds.</p><h4>How it scales Marketing</h4><ul><li><strong>Audience Personas:</strong> Prompt it to build exact buyer personas including pain points and desires.</li><li><strong>A/B Testing Copies:</strong> Generate 50 different variations of Facebook ad headlines instantly.</li><li><strong>Code Generation:</strong> Write HTML/CSS templates or Python scripts for programmatic SEO workflows.</li></ul><div class="pro-tip"><strong>Suraj's 90/10 Pro-Tip:</strong> Never copy-paste its raw output for blogs. Use it to create the outline and structure (90%), then rewrite the introduction and examples with your own human experience (10%).</div>`
+            },
+            {
+                id: 'claude', title: 'Claude (Anthropic)', domain: 'anthropic.com',
+                category: 'Humanized Writing', icon: 'icon-text', color: '#d97757', bg: 'linear-gradient(135deg, #fff3ec 0%, #ffe3d5 100%)',
+                shortDesc: 'Long-form articles aur technical writing ke liye sabse natural aur "human-sounding" AI.', link: 'https://claude.ai/',
+                details: `<h4>Overview</h4><p>Unlike ChatGPT, which often sounds robotic, Claude is designed to write with a highly natural, empathetic, and professional tone. It handles massive context windows (up to 200k tokens).</p><h4>How it scales Marketing</h4><ul><li><strong>SEO Pillar Pages:</strong> Feed it a 50-page PDF report and ask it to write a comprehensive, 3000-word SEO guide based on that data.</li><li><strong>Email Sequencing:</strong> Generates highly persuasive, non-spammy email drips for affiliate marketing.</li></ul><div class="pro-tip"><strong>Suraj's 90/10 Pro-Tip:</strong> Claude is excellent at mimicking brand voice. Provide it with 3 of your best past articles and prompt it: "Analyze the tone and write the next article in this exact voice."</div>`
+            },
+            {
+                id: 'perplexity', title: 'Perplexity AI', domain: 'perplexity.ai',
+                category: 'Deep Research', icon: 'icon-seo', color: '#0ea5e9', bg: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
+                shortDesc: 'Live internet search aur citations ke sath research ka future. Competitor analysis ke liye best.', link: 'https://www.perplexity.ai/',
+                details: `<h4>Overview</h4><p>Perplexity is an AI answer engine. It browses the live internet and synthesizes answers, explicitly citing the sources it used. It is the perfect playground for Generative Engine Optimization (GEO).</p><h4>How it scales Marketing</h4><ul><li><strong>Real-time Data Extraction:</strong> Find the exact features your competitors launched yesterday.</li><li><strong>Reverse Engineering GEO:</strong> Search for your target keyword on Perplexity, see which websites it cites, and analyze their schema structure to replicate their success.</li></ul><div class="pro-tip"><strong>Suraj's 90/10 Pro-Tip:</strong> If you want your website to be cited by Perplexity, ensure your articles have a "Direct Answer" box (TL;DR) in the first 50 words using strict HTML tags.</div>`
+            },
+            {
+                id: 'midjourney', title: 'Midjourney', domain: 'midjourney.com',
+                category: 'Visuals & Ads', icon: 'icon-image', color: '#0f172a', bg: 'linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%)',
+                shortDesc: 'Hyper-realistic images generate karein. Click-through rates (CTR) badhane ka ultimate tool.', link: 'https://www.midjourney.com/',
+                details: `<h4>Overview</h4><p>Midjourney translates text prompts into stunning, photorealistic, or artistic images. It completely eliminates the need for expensive stock photo subscriptions.</p><h4>How it scales Marketing</h4><ul><li><strong>Ad Creatives:</strong> Generate scroll-stopping images for Facebook and Instagram campaigns that prevent banner blindness.</li><li><strong>Blog Thumbnails:</strong> Create unique, branded featured images for your SEO articles that increase click-through rates.</li></ul><div class="pro-tip"><strong>Suraj's 90/10 Pro-Tip:</strong> Don't use generic prompts. Learn camera parameters. E.g., "Product photography of a smartwatch, dramatic lighting, shot on Sony A1, 85mm lens --ar 16:9".</div>`
+            },
+            {
+                id: 'canva', title: 'Canva Magic Studio', domain: 'canva.com',
+                category: 'Design Automation', icon: 'icon-image', color: '#00c4cc', bg: 'linear-gradient(135deg, #e0fcfc 0%, #c4f9f9 100%)',
+                shortDesc: 'AI design toolkit. Background remove karein, format resize karein, aur bulk graphics banayein.', link: 'https://www.canva.com/',
+                details: `<h4>Overview</h4><p>Canva has integrated powerful AI tools into its platform, making graphic design accessible to non-designers. The Magic Studio streamlines tedious visual tasks.</p><h4>How it scales Marketing</h4><ul><li><strong>Magic Resize:</strong> Create one Instagram post and instantly resize it perfectly for a LinkedIn banner, YouTube thumbnail, and Pinterest pin.</li><li><strong>Bulk Creation:</strong> Connect a CSV file of quotes or data points to a template and generate 30 days of social media content in one click.</li></ul><div class="pro-tip"><strong>Suraj's 90/10 Pro-Tip:</strong> Use Canva's bulk tool for Programmatic SEO images. Automatically generate unique header images for all 10,000 pages containing specific localized text.</div>`
+            },
+            {
+                id: 'surferseo', title: 'Surfer SEO', domain: 'surferseo.com',
+                category: 'On-Page Optimization', icon: 'icon-seo', color: '#a855f7', bg: 'linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%)',
+                shortDesc: 'Top 10 ranking pages ka data analyze karke aapko batata hai ki rank karne ke liye kya likhna hai.', link: 'https://surferseo.com/',
+                details: `<h4>Overview</h4><p>Surfer SEO removes the guesswork from on-page optimization. It analyzes the top 10 search results for your keyword and provides a mathematical model of exactly how many words, headings, and images you need.</p><h4>How it scales Marketing</h4><ul><li><strong>Content Scoring:</strong> Gives your article a live score (0-100) as you type, ensuring you hit semantic vector requirements.</li><li><strong>LSI Keywords:</strong> Identifies the exact NLP (Natural Language Processing) terms your competitors are using so you can naturally weave them in.</li></ul><div class="pro-tip"><strong>Suraj's 90/10 Pro-Tip:</strong> Hit a score of 80+ for the algorithm, but manually review the text. If you just stuff the suggested keywords, the readability drops and users bounce. Readability > Perfect Score.</div>`
+            },
+            {
+                id: 'opusclip', title: 'Opus Clip', domain: 'opus.pro',
+                category: 'Video Repurposing', icon: 'icon-video', color: '#6366f1', bg: 'linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%)',
+                shortDesc: 'Ek long video se automatically 10 viral Shorts/Reels nikaliye with animated captions.', link: 'https://www.opus.pro/',
+                details: `<h4>Overview</h4><p>Opus Clip uses generative AI to analyze a long-form YouTube video or podcast, identifies the most engaging hooks, and automatically crops them into vertical shorts.</p><h4>How it scales Marketing</h4><ul><li><strong>Content Multiplier:</strong> Turn a 1-hour podcast into a month's worth of TikTok and Instagram Reel content instantly.</li><li><strong>Dynamic Captions:</strong> Auto-generates Alex Hormozi-style animated captions and highlights keywords, which is crucial for Video SEO.</li></ul><div class="pro-tip"><strong>Suraj's 90/10 Pro-Tip:</strong> Don't trust the AI blindly. Use its clipping tool, but manually adjust the start and end frames so the "hook" hits exactly on the first second to maximize retention.</div>`
+            },
+            {
+                id: 'heygen', title: 'HeyGen', domain: 'heygen.com',
+                category: 'AI Video Avatars', icon: 'icon-video', color: '#8b5cf6', bg: 'linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%)',
+                shortDesc: 'Realistic AI avatars banakar text ko studio-quality video mein convert karein. No camera needed.', link: 'https://www.heygen.com/',
+                details: `<h4>Overview</h4><p>HeyGen creates lifelike AI avatars that lip-sync to your script. You can even train it on your own face and voice with just a 2-minute webcam video.</p><h4>How it scales Marketing</h4><ul><li><strong>Ad Testing:</strong> Generate 10 variations of a video ad with different hooks instantly, without reshooting or renting a studio.</li><li><strong>Localized Marketing:</strong> Translate your original video into 40+ languages while keeping your exact voice and matching lip movements.</li></ul><div class="pro-tip"><strong>Suraj's 90/10 Pro-Tip:</strong> Use your own cloned avatar rather than stock avatars. People connect with authentic faces. Keep scripts highly conversational so the avatar feels natural.</div>`
+            },
+            {
+                id: 'elevenlabs', title: 'ElevenLabs', domain: 'elevenlabs.io',
+                category: 'Voice & Audio', icon: 'icon-video', color: '#0f172a', bg: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)',
+                shortDesc: 'Internet ka sabse realistic AI voice generator. Faceless channels aur ads ke liye perfect.', link: 'https://elevenlabs.io/',
+                details: `<h4>Overview</h4><p>ElevenLabs is the undisputed leader in AI speech software. It generates voices that have breath, emotion, pacing, and intonation, making them indistinguishable from human voice actors.</p><h4>How it scales Marketing</h4><ul><li><strong>Faceless Channels:</strong> Produce high-quality YouTube documentaries or Reddit-story shorts with premium voiceovers.</li><li><strong>Podcast Automation:</strong> Convert your best-performing blog posts into an audio podcast series automatically.</li></ul><div class="pro-tip"><strong>Suraj's 90/10 Pro-Tip:</strong> Play with the "Stability" and "Clarity" sliders. A slightly lower stability makes the AI sound more human by adding slight imperfections and emotional variations.</div>`
+            },
+            {
+                id: 'manychat', title: 'ManyChat', domain: 'manychat.com',
+                category: 'Social Automation', icon: 'icon-analytics', color: '#0084ff', bg: 'linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%)',
+                shortDesc: 'Instagram DM automation ka raja. Lead generation aur affiliate link distribution ko autopilot karein.', link: 'https://manychat.com/',
+                details: `<h4>Overview</h4><p>ManyChat allows you to build chatbot flows for Instagram, WhatsApp, and Messenger. It turns passive followers into active leads by engaging them automatically.</p><h4>How it scales Marketing</h4><ul><li><strong>Comment-to-DM Strategy:</strong> "Comment 'LINK' to get the course." The AI instantly DMs the link, bypassing Instagram's algorithm that hates external links in captions.</li><li><strong>Affiliate Routing:</strong> Build a mini-quiz in DMs. Based on user answers, automatically send them the specific affiliate product they need.</li></ul><div class="pro-tip"><strong>Suraj's 90/10 Pro-Tip:</strong> Make sure your bot declares it is a bot, but write the copy with your personal humor. "Hey! My AI assistant caught your comment, here is that link you asked for..."</div>`
+            },
+            {
+                id: 'zapier', title: 'Zapier', domain: 'zapier.com',
+                category: 'Workflow Automation', icon: 'icon-analytics', color: '#ff4f00', bg: 'linear-gradient(135deg, #ffedd5 0%, #fed7aa 100%)',
+                shortDesc: '5,000+ apps ko connect karein. Lead capture, email follow-ups, aur data routing ko automate karein.', link: 'https://zapier.com/',
+                details: `<h4>Overview</h4><p>Zapier is the glue of the internet. It allows different software (like Facebook Ads and Google Sheets) to talk to each other. With their new AI features, you can build logic-based automation without coding.</p><h4>How it scales Marketing</h4><ul><li><strong>Lead Pipeline:</strong> When a Facebook Lead form is submitted -> Send to CRM -> Send personalized Welcome Email -> Ping Slack channel.</li><li><strong>Content Distribution:</strong> When a new YouTube video is published -> Use AI to summarize it -> Auto-post to Twitter and LinkedIn.</li></ul><div class="pro-tip"><strong>Suraj's 90/10 Pro-Tip:</strong> Use Zapier's "Formatter" tool to clean up incoming data (like fixing capitalization on user names) before injecting it into your email software, keeping personalization flawless.</div>`
+            },
+            {
+                id: 'hotjar', title: 'Hotjar', domain: 'hotjar.com',
+                category: 'CRO & Heatmaps', icon: 'icon-analytics', color: '#fd3a5c', bg: 'linear-gradient(135deg, #ffe4e6 0%, #fecdd3 100%)',
+                shortDesc: 'Users kahan click kar rahe hain uska heatmap. AI ab data ki summary bhi banata hai.', link: 'https://www.hotjar.com/',
+                details: `<h4>Overview</h4><p>Hotjar visualizes how users interact with your site using Heatmaps and screen recordings. Their AI now generates instant reports, telling you exactly why users are abandoning carts.</p><h4>How it scales Marketing</h4><ul><li><strong>Friction Discovery:</strong> See exactly where users stop scrolling or rage-click on broken elements.</li><li><strong>AI Surveys:</strong> Generate context-aware exit surveys that ask users why they didn't buy, based on their session behavior.</li></ul><div class="pro-tip"><strong>Suraj's 90/10 Pro-Tip:</strong> If the heatmap shows a high concentration of clicks on an image that isn't a link, immediately turn that image into a clickable CTA. You are losing free conversions.</div>`
+            },
+            {
+                id: 'copyai', title: 'Copy.ai', domain: 'copy.ai',
+                category: 'Copywriting', icon: 'icon-text', color: '#10b981', bg: 'linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)',
+                shortDesc: 'Sales pages aur email drips ke liye pre-built templates jo conversions maximize karte hain.', link: 'https://www.copy.ai/',
+                details: `<h4>Overview</h4><p>Unlike ChatGPT, Copy.ai is specifically trained on high-converting marketing copy. It understands frameworks like AIDA (Attention, Interest, Desire, Action) and PAS (Problem, Agitation, Solution).</p><h4>How it scales Marketing</h4><ul><li><strong>Sales Pages:</strong> Generate full landing page copy structured for conversions.</li><li><strong>Product Descriptions:</strong> Feed it a list of features, and it will generate benefit-driven descriptions for e-commerce sites.</li></ul><div class="pro-tip"><strong>Suraj's 90/10 Pro-Tip:</strong> Always use the PAS framework for your social media hooks. Define a painful problem, agitate it, and offer your product as the only solution.</div>`
+            },
+            {
+                id: 'runway', title: 'Runway', domain: 'runwayml.com',
+                category: 'Video Generation', icon: 'icon-video', color: '#0f172a', bg: 'linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%)',
+                shortDesc: 'Text likhiye aur custom cinematic videos generate kijiye. B2B ads ke liye perfect.', link: 'https://runwayml.com/',
+                details: `<h4>Overview</h4><p>Runway pioneers text-to-video and image-to-video generation. You can create sweeping cinematic drone shots or conceptual art animations using just text prompts.</p><h4>How it scales Marketing</h4><ul><li><strong>B-Roll Generation:</strong> Need a clip of a hacker typing in a dark room for a tech video? Generate it instantly instead of searching stock sites.</li><li><strong>Dynamic Ads:</strong> Animate static product images to catch attention on Instagram and Facebook feeds.</li></ul><div class="pro-tip"><strong>Suraj's 90/10 Pro-Tip:</strong> Combine Midjourney and Runway. Generate a flawless hyper-realistic image in Midjourney, then import it into Runway to animate specific elements.</div>`
+            },
+            {
+                id: 'apollo', title: 'Apollo.io', domain: 'apollo.io',
+                category: 'B2B Lead Gen', icon: 'icon-analytics', color: '#ffca28', bg: 'linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)',
+                shortDesc: 'Decision-makers ke emails dhoondhein aur personalized cold email sequences automate karein.', link: 'https://www.apollo.io/',
+                details: `<h4>Overview</h4><p>Apollo is a massive B2B database combined with an outreach engine. Its AI helps you filter through millions of professionals to find your exact target market and draft emails.</p><h4>How it scales Marketing</h4><ul><li><strong>Hyper-Targeting:</strong> Find every "Marketing Director" at software companies with $10M+ revenue.</li><li><strong>AI Personalization:</strong> The AI reads the prospect's LinkedIn recent news and crafts a custom opening line for your cold email.</li></ul><div class="pro-tip"><strong>Suraj's 90/10 Pro-Tip:</strong> Cold outreach fails when it looks automated. Use the AI to gather data and write the middle of the email, but always write the subject line and first sentence yourself.</div>`
+            },
+            {
+                id: 'grammarly', title: 'Grammarly', domain: 'grammarly.com',
+                category: 'Content Editing', icon: 'icon-text', color: '#15c39a', bg: 'linear-gradient(135deg, #ccfbf1 0%, #99f6e4 100%)',
+                shortDesc: 'Grammar theek karne ke sath-sath aapke text ka professional ya casual tone bhi adjust karta hai.', link: 'https://www.grammarly.com/',
+                details: `<h4>Overview</h4><p>Grammarly has evolved from a spell-checker to a complete AI writing assistant. GrammarlyGO can rewrite paragraphs, expand ideas, and strictly enforce your brand's style guide.</p><h4>How it scales Marketing</h4><ul><li><strong>Brand Consistency:</strong> Ensure every team member writing emails or blog posts adheres to the exact same tone.</li><li><strong>Clarity:</strong> It forces you to write concisely, which improves readability and SEO dwell time.</li></ul><div class="pro-tip"><strong>Suraj's 90/10 Pro-Tip:</strong> The internet reads at an 8th-grade level. Always accept Grammarly's suggestions to simplify complex sentences. Big words don't sell; clarity sells.</div>`
+            },
+            {
+                id: 'klaviyo', title: 'Klaviyo', domain: 'klaviyo.com',
+                category: 'Email Marketing', icon: 'icon-seo', color: '#35e8cc', bg: 'linear-gradient(135deg, #e0fcfc 0%, #ccfbf1 100%)',
+                shortDesc: 'E-commerce ka favorite. AI predict karta hai user kab kharidega aur right time par email bhejta hai.', link: 'https://www.klaviyo.com/',
+                details: `<h4>Overview</h4><p>Klaviyo is the most powerful email and SMS marketing tool for e-commerce. Its predictive AI models analyze shopping behavior to trigger hyper-personalized messages.</p><h4>How it scales Marketing</h4><ul><li><strong>Predictive Analytics:</strong> It calculates "Expected Date of Next Purchase" and automatically sends a replenishment email right when they are running out of your product.</li><li><strong>Churn Risk:</strong> Identifies VIP customers who are slipping away and triggers high-value discount codes exclusively to them.</li></ul><div class="pro-tip"><strong>Suraj's 90/10 Pro-Tip:</strong> Build an "Abandoned Cart" sequence that feels personal. Email 1: Gentle reminder (Automated). Email 2: A plain-text email asking if they had technical issues (Human touch).</div>`
+            },
+            {
+                id: 'jasper', title: 'Jasper', domain: 'jasper.ai',
+                category: 'Brand Voice', icon: 'icon-text', color: '#6366f1', bg: 'linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%)',
+                shortDesc: 'Enterprise copywriting. Apne brand ka "Voice" aur style guide sikhayein taaki content authentic lage.', link: 'https://www.jasper.ai/',
+                details: `<h4>Overview</h4><p>Jasper is built for marketing teams. You can upload your company's knowledge base, past successful ads, and product PDFs, and Jasper will strictly write based on those facts and tone.</p><h4>How it scales Marketing</h4><ul><li><strong>Campaign Creation:</strong> Generate a unified campaign across landing pages, ads, and emails that all share the exact same voice and messaging framework.</li><li><strong>SEO Integration:</strong> Jasper integrates directly with Surfer SEO to write articles that are both on-brand and structurally optimized for search.</li></ul><div class="pro-tip"><strong>Suraj's 90/10 Pro-Tip:</strong> Feed Jasper a successful Reddit post from your niche. Ask it to extract the pain points and use that specific vocabulary to write your next ad copy.</div>`
+            },
+            {
+                id: 'synthesia', title: 'Synthesia', domain: 'synthesia.io',
+                category: 'Tutorial Videos', icon: 'icon-video', color: '#0ea5e9', bg: 'linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%)',
+                shortDesc: 'Software onboarding ya explainers ke liye studio-quality AI actors in 120+ languages.', link: 'https://www.synthesia.io/',
+                details: `<h4>Overview</h4><p>Synthesia lets you create professional corporate, training, or product explainer videos using AI actors and text-to-speech technology, without hiring talent or renting gear.</p><h4>How it scales Marketing</h4><ul><li><strong>SaaS Onboarding:</strong> Create personalized video tutorials for every feature of your software. Update the text anytime the UI changes without reshooting.</li><li><strong>Global Reach:</strong> Type one script in English and instantly generate versions in Spanish, Hindi, and German with perfect lip-sync.</li></ul><div class="pro-tip"><strong>Suraj's 90/10 Pro-Tip:</strong> AI videos can feel cold for sales pitches. Use Synthesia strictly for educational/onboarding content, but use real humans for your primary sales pages to build trust.</div>`
+            },
+            {
+                id: 'ga4', title: 'Google Analytics', domain: 'analytics.google.com',
+                category: 'Predictive Analytics', icon: 'icon-analytics', color: '#f59e0b', bg: 'linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)',
+                shortDesc: 'Inbuilt machine learning batata hai ki kaunsa user next 7 days mein product kharidne wala hai.', link: 'https://analytics.google.com/',
+                details: `<h4>Overview</h4><p>GA4 is an event-based tracking system built around machine learning. Even when users block cookies, GA4 uses AI modeling to fill in the data gaps and track the customer journey.</p><h4>How it scales Marketing</h4><ul><li><strong>Predictive Audiences:</strong> It automatically groups users who have a high probability of purchasing in the next 7 days. You can push this exact audience directly into Google Ads.</li><li><strong>Anomaly Detection:</strong> The AI alerts you immediately if traffic drops unnaturally or if a specific page stops converting, saving you from lost revenue.</li></ul><div class="pro-tip"><strong>Suraj's 90/10 Pro-Tip:</strong> Don't look at vanity metrics (like page views). Focus strictly on event conversions and set up custom dashboards tracking the specific user journey to your affiliate links.</div>`
+            }
+        ];
+
+        // Renders Cards with Official App Icons and Gradient Backgrounds
+        function renderCards() {
+            const grid = document.getElementById('toolsGrid');
+            
+            toolsData.forEach((tool, index) => {
+                const delay = (index % 6) * 0.1;
+                // Using Google Favicon API for 100% reliable, official, high-res logos (sz=128)
+                const logoUrl = `https://www.google.com/s2/favicons?domain=${tool.domain}&sz=128`;
+                
+                const cardHTML = `
+                    <article class="tool-card animate-up" style="animation-delay: ${delay}s;" onclick="openToolModal('${tool.id}')">
+                        <div class="card-media" style="background: ${tool.bg};">
+                            <!-- High-Res App Icon injected here -->
+                            <img src="${logoUrl}" alt="${tool.title} Icon" class="app-icon" loading="lazy">
+                            <svg class="diagram-overlay" viewBox="0 0 24 24" fill="${tool.color}"><use href="#${tool.icon}"></use></svg>
+                        </div>
+                        <div class="card-content">
+                            <span class="category-badge" style="color: ${tool.color}">${tool.category}</span>
+                            <h3 class="tool-title">${tool.title}</h3>
+                            <p class="tool-desc">${tool.shortDesc}</p>
+                            <span class="click-hint" style="color: ${tool.color}">View Details & Strategy &rarr;</span>
+                        </div>
+                    </article>
+                `;
+                grid.innerHTML += cardHTML;
+            });
+        }
+
+        // Modal Logic
+        const modalOverlay = document.getElementById('toolModal');
+        const mBanner = document.getElementById('modalBanner');
+        const mIcon = document.getElementById('modalAppIcon');
+        const mCat = document.getElementById('modalCategory');
+        const mTitle = document.getElementById('modalTitle');
+        const mText = document.getElementById('modalText');
+        const mLink = document.getElementById('modalLink');
+
+        function openToolModal(id) {
+            const tool = toolsData.find(t => t.id === id);
+            if(tool) {
+                const logoUrl = `https://www.google.com/s2/favicons?domain=${tool.domain}&sz=128`;
+                
+                mBanner.style.background = tool.bg;
+                mIcon.src = logoUrl;
+                mCat.innerText = tool.category;
+                mCat.style.color = tool.color;
+                mTitle.innerText = tool.title;
+                mText.innerHTML = tool.details;
+                mLink.href = tool.link;
+                
+                mLink.style.background = `linear-gradient(90deg, ${tool.color}, #0f172a)`;
+                
+                modalOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal() { 
+            modalOverlay.classList.remove('active'); 
+            document.body.style.overflow = 'auto'; 
+        }
+        
+        window.onclick = function(e) { if (e.target == modalOverlay) { closeModal(); } }
+        window.onload = renderCards;
+    </script>
+
+</body>
+</html>

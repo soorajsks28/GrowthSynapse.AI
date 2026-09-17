@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>About Us | The Ultimate Digital Marketing Blueprint | GrowthSynapse AI</title>
+    <link rel="icon" type="image/png" href="./logo.png">
+    <meta name="description" content="Deep dive into the fundamentals of Digital Marketing. Learn SEO, GEO, data analytics, and why scaling your digital presence is critical in 2026.">
+    <meta name="robots" content="index, follow">
+    
+    <style>
+        /* Modern Tech & Content Theme */
+        :root {
+            --bg-color: #f8fafc;
+            --primary: #0f172a;
+            --secondary: #3b82f6; 
+            --accent: #8b5cf6;
+            --text-main: #334155;
+            --text-light: #475569;
+            --border-light: #e2e8f0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; }
+        
+        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.8; overflow-x: hidden; }
+
+        /* Navigation */
+        header {
+            background: #ffffff;
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); text-decoration: none; }
+        .logo span { color: var(--secondary); }
+        .back-btn { text-decoration: none; color: var(--text-main); font-weight: 600; display: flex; align-items: center; gap: 5px; transition: color 0.3s; }
+        .back-btn:hover { color: var(--secondary); }
+
+        /* Animations */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes borderGlow { 0% { border-color: var(--secondary); box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.1); } 50% { border-color: var(--accent); box-shadow: 0 20px 40px -10px rgba(139, 92, 246, 0.3); } 100% { border-color: var(--secondary); box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.1); } }
+        @keyframes floatImage { 0%, 100% { transform: translateY(0px) scale(1); } 50% { transform: translateY(-10px) scale(1.02); } }
+        @keyframes popIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+        .animate-up { opacity: 0; animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
+        /* Layout */
+        .container { max-width: 1100px; margin: 4rem auto; padding: 0 2rem; }
+        
+        .header-section { text-align: center; margin-bottom: 4rem; }
+        .header-section h1 { font-size: 3.5rem; color: var(--primary); margin-bottom: 1.5rem; line-height: 1.2; letter-spacing: -1px; }
+        .header-section p { font-size: 1.25rem; color: var(--text-light); max-width: 800px; margin: 0 auto; }
+
+        /* Long Form Content Sections */
+        .content-block {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 4rem;
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+            margin-bottom: 4rem;
+            border: 1px solid var(--border-light);
+        }
+
+        .content-block h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 15px; }
+        .content-block h2::before { content: ''; display: block; width: 6px; height: 35px; background: linear-gradient(to bottom, var(--secondary), var(--accent)); border-radius: 4px; }
+        .content-block h3 { font-size: 1.5rem; color: var(--primary); margin: 2.5rem 0 1rem 0; }
+        .content-block p { font-size: 1.15rem; margin-bottom: 1.5rem; color: var(--text-main); }
+        .content-block ul { margin-left: 2rem; margin-bottom: 1.5rem; }
+        .content-block li { font-size: 1.15rem; margin-bottom: 0.8rem; }
+
+        /* Diagrams styling */
+        .diagram-container {
+            width: 100%;
+            height: 300px;
+            background: #f8fafc;
+            border-radius: 16px;
+            margin: 2rem 0 3rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-light);
+            overflow: hidden;
+        }
+        
+        /* Interactive Cards */
+        .core-pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 3rem; }
+        .pillar-card { background: #f8fafc; padding: 2rem; border-radius: 16px; border-top: 4px solid var(--secondary); transition: all 0.3s ease; cursor: pointer; border-left: 1px solid var(--border-light); border-right: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
+        .pillar-card:hover { transform: translateY(-8px); background: #ffffff; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
+        .pillar-card h4 { font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; }
+        .pillar-card p { font-size: 1rem; color: var(--text-light); margin: 0; }
+        .click-hint { font-size: 0.85rem; color: var(--secondary); margin-top: 15px; display: inline-block; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Modal / Popup */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; z-index: 2000; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-box { background: #ffffff; width: 90%; max-width: 800px; border-radius: 20px; padding: 2.5rem; position: relative; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); display: none; max-height: 90vh; overflow-y: auto; }
+        .modal-overlay.active .modal-box { display: block; animation: popIn 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .close-btn { position: absolute; top: 20px; right: 20px; background: #f1f5f9; border: none; width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; color: var(--primary); transition: 0.2s; display: flex; align-items: center; justify-content: center; }
+        .close-btn:hover { background: #ef4444; color: #fff; }
+        .modal-title { font-size: 2rem; color: var(--primary); margin-bottom: 1.5rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; }
+        .modal-diagram { width: 100%; height: 280px; background: #f8fafc; border-radius: 12px; margin-bottom: 2rem; display: flex; align-items: center; justify-content: center; border: 1px solid #e2e8f0; }
+        .modal-text { font-size: 1.15rem; color: var(--text-main); }
+        .modal-text p { margin-bottom: 1.2rem; }
+
+        /* Founder Section (Only Image, Name & Links) */
+        .profile-section { display: flex; align-items: center; justify-content: center; gap: 4rem; background: #ffffff; padding: 4rem; border-radius: 24px; border: 2px solid var(--secondary); animation: borderGlow 6s infinite ease-in-out; margin-top: 5rem; }
+        .profile-img-container { flex-shrink: 0; width: 280px; height: 280px; border-radius: 50%; padding: 8px; background: linear-gradient(135deg, var(--secondary), var(--accent)); animation: floatImage 5s ease-in-out infinite; }
+        .profile-img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 4px solid #ffffff; background-color: #e2e8f0; }
+        .profile-info h2 { font-size: 3rem; color: var(--primary); margin-bottom: 0.5rem; line-height: 1.1; }
+        .profile-info h4 { font-size: 1.3rem; color: var(--secondary); margin-bottom: 2rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+        
+        .social-links { display: flex; flex-wrap: wrap; gap: 15px; }
+        .social-btn { display: flex; align-items: center; justify-content: center; width: 55px; height: 55px; border-radius: 14px; background: #f1f5f9; color: var(--primary); text-decoration: none; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .social-btn svg { width: 26px; height: 26px; fill: currentColor; }
+        .social-btn:hover { transform: translateY(-5px) scale(1.1); color: #ffffff; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .social-btn.linkedin:hover { background: #0077b5; }
+        .social-btn.portfolio:hover { background: #10b981; }
+        .social-btn.instagram:hover { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .social-btn.email:hover { background: #ea4335; } 
+
+        /* SVG Animations */
+        @keyframes networkPulse { 0% { r: 4; opacity: 0.5; } 50% { r: 8; opacity: 1; fill: var(--secondary); } 100% { r: 4; opacity: 0.5; } }
+        .node { animation: networkPulse 3s infinite; }
+        @keyframes dataFlow { to { stroke-dashoffset: -40; } }
+        .flow-line { stroke-dasharray: 10 5; animation: dataFlow 1.5s linear infinite; }
+        @keyframes barGrow { 0% { transform: scaleY(0.1); } 100% { transform: scaleY(1); } }
+        .chart-bar { transform-origin: bottom; animation: barGrow 2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+        /* Mobile Responsiveness Fixes */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+                gap: 15px;
+                text-align: center;
+            }
+            .container {
+                padding: 0 1.5rem;
+                margin: 2rem auto;
+            }
+            .header-section h1 {
+                font-size: 2.2rem;
+            }
+            .content-block {
+                padding: 2rem;
+            }
+            .diagram-container {
+                height: auto;
+                padding: 1rem 0;
+                overflow-x: auto;
+            }
+            svg {
+                max-width: 100%;
+                height: auto;
+            }
+            .modal-box {
+                width: 95%;
+                padding: 1.5rem;
+            }
+            .profile-section { 
+                flex-direction: column; 
+                text-align: center; 
+                padding: 2rem 1.5rem; 
+                gap: 1.5rem; 
+            }
+            .profile-img-container {
+                width: 200px;
+                height: 200px;
+            }
+            .social-links { 
+                justify-content: center; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="./index.html" class="logo" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+            <img src="./logo.png" alt="GrowthSynapse Logo" style="width: 40px; height: 40px; object-fit: contain; border-radius: 8px;">
+            GrowthSynapse<span> .AI</span>
+        </a>
+        <a href="./index.html" class="back-btn">← Back to Home</a>
+    </header>
+
+    <main class="container">
+        
+        <div class="header-section animate-up">
+            <h1>The Ultimate Anatomy of Digital Growth</h1>
+            <p>From the raw fundamentals of algorithms to building scalable monetization pipelines. Dive deep into the mechanics of modern digital marketing.</p>
+        </div>
+
+        <!-- Section 1: What is Digital Marketing -->
+        <div class="content-block animate-up delay-1">
+            <h2>What Exactly is Digital Marketing?</h2>
+            
+            <div class="diagram-container">
+                <!-- SVG 1: Digital Ecosystem -->
+                <svg width="600" height="250" viewBox="0 0 600 250">
+                    <circle cx="300" cy="125" r="50" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="3"/>
+                    <text x="300" y="130" text-anchor="middle" fill="#0369a1" font-weight="bold" font-size="14">Your Brand</text>
+                    
+                    <!-- Nodes -->
+                    <circle cx="150" cy="60" r="6" fill="#64748b" class="node" style="animation-delay: 0s;"/>
+                    <circle cx="450" cy="60" r="6" fill="#64748b" class="node" style="animation-delay: 0.5s;"/>
+                    <circle cx="150" cy="190" r="6" fill="#64748b" class="node" style="animation-delay: 1s;"/>
+                    <circle cx="450" cy="190" r="6" fill="#64748b" class="node" style="animation-delay: 1.5s;"/>
+
+                    <!-- Lines -->
+                    <path d="M155 65 L260 105" stroke="#94a3b8" stroke-width="2" class="flow-line"/>
+                    <path d="M445 65 L340 105" stroke="#94a3b8" stroke-width="2" class="flow-line"/>
+                    <path d="M155 185 L260 145" stroke="#94a3b8" stroke-width="2" class="flow-line"/>
+                    <path d="M445 185 L340 145" stroke="#94a3b8" stroke-width="2" class="flow-line"/>
+
+                    <!-- Labels -->
+                    <text x="130" y="45" fill="#475569" font-size="12" font-weight="bold">Search (SEO)</text>
+                    <text x="470" y="45" fill="#475569" font-size="12" font-weight="bold">Social Media</text>
+                    <text x="130" y="215" fill="#475569" font-size="12" font-weight="bold">Email / CRM</text>
+                    <text x="470" y="215" fill="#475569" font-size="12" font-weight="bold">Paid Ads (PPC)</text>
+                </svg>
+            </div>
+
+            <p>At its core, Digital Marketing is the architecture of human attention. In the traditional era, businesses rented space on billboards, television, and print media, hoping the right demographic would glance at their message. Today, digital marketing reverses this dynamic. Instead of shouting into the void, we use algorithms, data nodes, and search intent to place highly specific solutions directly in front of users exactly when they are looking for them.</p>
+            
+            <p>It is the practice of utilizing digital channels—search engines, social media ecosystems, email networks, and programmatic advertising—to connect with current and prospective customers. However, in 2026, it is no longer just about "running ads." It is about constructing an omnichannel data pipeline. It requires understanding how machine learning models crawl web pages, how AI chatbots synthesize information, and how predictive behavioral analytics can map out a customer’s journey before they even make their first click.</p>
+            
+            <p>Whether you are building a SaaS product, launching a price-comparison engine, or creating an automated affiliate funnel, digital marketing is the operational engine that transforms static code into scalable, revenue-generating digital assets.</p>
+        </div>
+
+        <!-- Section 2: Core Fundamentals -->
+        <div class="content-block animate-up delay-2">
+            <h2>The 5 Core Fundamentals</h2>
+            
+            <p>To succeed in the modern digital landscape, you cannot rely on superficial tactics. You must master the foundational pillars that govern internet traffic and user psychology. Here is a deep dive into the elements that actually move the needle:</p>
+
+            <div class="diagram-container">
+                <!-- SVG 2: The Marketing Funnel -->
+                <svg width="600" height="250" viewBox="0 0 600 250">
+                    <polygon points="100,30 500,30 350,220 250,220" fill="#f8fafc" stroke="#3b82f6" stroke-width="3"/>
+                    
+                    <path d="M140,80 L460,80" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5"/>
+                    <path d="M180,130 L420,130" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5"/>
+                    <path d="M220,180 L380,180" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5"/>
+
+                    <text x="300" y="60" text-anchor="middle" fill="#0f172a" font-weight="bold" font-size="14">1. Traffic Acquisition (SEO / Ads)</text>
+                    <text x="300" y="110" text-anchor="middle" fill="#0f172a" font-weight="bold" font-size="14">2. Engagement (Content / UI)</text>
+                    <text x="300" y="160" text-anchor="middle" fill="#0f172a" font-weight="bold" font-size="14">3. Conversion (CRO)</text>
+                    <text x="300" y="205" text-anchor="middle" fill="#16a34a" font-weight="bold" font-size="14">Revenue & Retention</text>
+                </svg>
+            </div>
+
+            <h3>1. Search Engine Optimization (SEO & GEO)</h3>
+            <p>SEO is the art and science of signaling authority to search algorithms. Traditionally, this meant optimizing title tags, building backlinks, and keyword density. Today, we have entered the era of <strong>Generative Engine Optimization (GEO)</strong>. AI interfaces like Google SGE and ChatGPT process entities, semantic relationships, and schema markup (JSON-LD). Your goal is not just to rank as a blue link, but to structure your content so impeccably that Large Language Models explicitly cite your brand as the primary source of truth.</p>
+
+            <h3>2. Content Architecture & Humanization</h3>
+            <p>Content is the vehicle for your strategy. However, the internet is saturated with AI-generated fluff. The fundamental rule of modern content is the <strong>90/10 Principle</strong>. Use AI to handle the 90% structural heavy lifting—formatting, data extraction, and programmatic scaling—but inject 10% authentic human experience. Case studies, empirical data, troubleshooting logs, and empathetic storytelling are the unique variables that bypass AI detectors and build genuine audience trust.</p>
+
+            <h3>3. Performance Marketing & PPC</h3>
+            <p>Pay-Per-Click (PPC) advertising across Google Ads or Meta allows you to buy algorithmic placement. The fundamental concept here is the feedback loop of data. It involves managing bidding strategies, optimizing Quality Scores, and matching ad copy directly to the user's search intent. When paired with backend AI agents, paid traffic can be routed dynamically to personalized landing pages, drastically lowering Customer Acquisition Cost (CAC).</p>
+
+            <h3>4. Conversion Rate Optimization (CRO)</h3>
+            <p>Acquiring traffic is useless if your website acts like a leaky bucket. CRO is the systematic process of increasing the percentage of visitors who take a desired action. By leveraging predictive AI heatmaps, A/B testing, and frictionless UI/UX design, you can eliminate cognitive load. It means structuring your forms, CTAs, and checkout flows so that the user journey feels intuitive and effortless.</p>
+
+            <h3>5. Data Analytics & Server-Side Tracking</h3>
+            <p>In a cookieless world, relying on third-party trackers is obsolete. The bedrock of digital marketing is now First-Party Data Architecture. By utilizing Server-Side Tagging (CAPI) and centralized data warehousing (SQL/Firebase), marketers track user behavior securely. This clean, deterministic data feeds back into machine learning models, allowing for hyper-personalized email automations and perfect retargeting campaigns.</p>
+        </div>
+
+        <!-- Section 3: Why Do It? -->
+        <div class="content-block animate-up delay-3">
+            <h2>Why is Digital Marketing Imperative?</h2>
+            
+            <p>Many founders build incredible software, applications, or content platforms, assuming "if we build it, they will come." This is the biggest fallacy on the internet. Without a robust digital marketing engine, your product exists in a vacuum. Here is why executing this architecture is critical for scale:</p>
+
+            <div class="diagram-container">
+                <!-- SVG 3: Growth Chart -->
+                <svg width="600" height="250" viewBox="0 0 600 250">
+                    <!-- Axes -->
+                    <line x1="50" y1="200" x2="550" y2="200" stroke="#cbd5e1" stroke-width="3"/>
+                    <line x1="50" y1="200" x2="50" y2="30" stroke="#cbd5e1" stroke-width="3"/>
+                    
+                    <!-- Bars -->
+                    <rect x="80" y="160" width="40" height="40" fill="#93c5fd" class="chart-bar" style="animation-delay: 0.2s;"/>
+                    <rect x="140" y="140" width="40" height="60" fill="#60a5fa" class="chart-bar" style="animation-delay: 0.4s;"/>
+                    <rect x="200" y="110" width="40" height="90" fill="#3b82f6" class="chart-bar" style="animation-delay: 0.6s;"/>
+                    <rect x="260" y="70" width="40" height="130" fill="#2563eb" class="chart-bar" style="animation-delay: 0.8s;"/>
+                    <rect x="320" y="40" width="40" height="160" fill="#1d4ed8" class="chart-bar" style="animation-delay: 1.0s;"/>
+
+                    <!-- Exponential Curve -->
+                    <path d="M70 190 Q 250 150 450 30" fill="none" stroke="#f43f5e" stroke-width="4" stroke-linecap="round"/>
+                    <circle cx="450" cy="30" r="6" fill="#e11d48"/>
+                    
+                    <text x="470" y="35" fill="#be123c" font-weight="bold" font-size="12">Exponential Scale</text>
+                    <text x="50" y="225" fill="#64748b" font-weight="bold" font-size="12">Time & Strategy Execution</text>
+                </svg>
+            </div>
+
+            <ul>
+                <li><strong>Infinite Scalability:</strong> Physical marketing is bound by geography. Digital pipelines allow you to generate programmatic pages or launch AI agents that can interact with 10,000 unique users simultaneously, across the globe, at zero marginal cost.</li>
+                <li><strong>Unprecedented Measurability:</strong> Traditional advertising operates on estimates. Digital architectures track exact attribution. You know precisely which keyword, which video frame, and which email subject line generated the highest Lifetime Value (LTV) customer, allowing you to allocate budget with surgical precision.</li>
+                <li><strong>Hyper-Personalization at Scale:</strong> By leveraging Zero-Party data and machine learning, you don't broadcast a single message to a million people. You dynamically render a million unique messages, tailored to the exact psychological state and search intent of every individual user.</li>
+                <li><strong>Cost-Efficiency through Automation:</strong> Once a programmatic SEO database or an automated affiliate routing script is built, it works 24/7. It replaces the need for massive sales teams, drastically increasing profit margins and operational efficiency.</li>
+            </ul>
+        </div>
+
+        <!-- Section 4: Our Philosophy & Modals -->
+        <div class="content-block animate-up delay-3" style="animation-delay: 0.8s;">
+            <h2>The GrowthSynapse Edge</h2>
+            <p>At GrowthSynapse, we don't just teach the theory; we build the technical architecture. We fuse full-stack development principles with algorithmic marketing to create systems that dominate AI search and automate revenue.</p>
+            
+            <div class="core-pillars">
+                <div class="pillar-card" onclick="openModal('geo')">
+                    <h4>GEO & LLMO</h4>
+                    <p>Mastering AI Engine Optimization & Semantic Schemas.</p>
+                    <span class="click-hint">View Architecture →</span>
+                </div>
+                <div class="pillar-card" onclick="openModal('scaling')">
+                    <h4>Programmatic Scaling</h4>
+                    <p>Generating 10,000+ optimized pages dynamically.</p>
+                    <span class="click-hint">View Pipeline →</span>
+                </div>
+                <div class="pillar-card" onclick="openModal('monetization')">
+                    <h4>AI Monetization</h4>
+                    <p>Predictive affiliate automation & frictionless funnels.</p>
+                    <span class="click-hint">View Funnel →</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5: Founder Profile -->
+        <div class="animate-up delay-3" style="animation-delay: 1s;">
+            <div class="profile-section">
+                
+                <div class="profile-img-container">
+                    <!-- UPDATED IMAGE LINK TO .PNG -->
+                    <img src="IMG_20260829_201947.png" alt="Suraj Saxena" class="profile-img">
+                </div>
+
+                <div class="profile-info">
+                    <h2>Suraj Saxena</h2>
+                    <h4>Founder & Architect</h4>
+                    
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/suraj-saxena-34b04b350/" target="_blank" class="social-btn linkedin" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="https://soorajsks28.github.io/portfolio" target="_blank" class="social-btn portfolio" aria-label="Portfolio">
+                            <svg viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 8c0 .552-.448 1-1 1s-1-.448-1-1 .448-1 1-1 1 .448 1 1zm4 0c0 .552-.448 1-1 1s-1-.448-1-1 .448-1 1-1 1 .448 1 1zm4 0c0 .552-.448 1-1 1s-1-.448-1-1 .448-1 1-1 1 .448 1 1zm-4 10.9c-2.43 0-4.681-1.348-5.787-3.553l1.776-.894c.758 1.511 2.302 2.447 4.011 2.447s3.253-.936 4.011-2.447l1.776.894c-1.106 2.205-3.357 3.553-5.787 3.553z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/fit.sooraj?stkn=MTJudmZsemZ4cGN6MA==" target="_blank" class="social-btn instagram" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="mailto:surajsaxena28012004@gmail.com" class="social-btn email" aria-label="Email">
+                            <svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Modal (Popup) Structure -->
+    <div class="modal-overlay" id="infoModal">
+        <div class="modal-box">
+            <button class="close-btn" onclick="closeModal()">×</button>
+            <h2 class="modal-title" id="modalTitle">Title</h2>
+            <div class="modal-diagram" id="modalDiagram"></div>
+            <div class="modal-text" id="modalText"></div>
+        </div>
+    </div>
+
+    <!-- JavaScript to handle Popups and Data -->
+    <script>
+        const modalData = {
+            'geo': {
+                title: 'GEO & LLMO Architecture',
+                svg: `<svg width="100%" height="100%" viewBox="0 0 400 200" fill="none">
+                        <rect x="50" y="80" width="80" height="40" rx="5" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="2"/>
+                        <text x="65" y="105" fill="#0369a1" font-size="12" font-weight="bold">Schema</text>
+                        <path d="M130 100 L250 100" stroke="#0ea5e9" stroke-width="2" stroke-dasharray="5" style="animation: dashMove 2s linear infinite;"/>
+                        <circle cx="280" cy="100" r="10" fill="#cbd5e1" style="animation: networkPulse 2s infinite;"/>
+                        <circle cx="280" cy="100" r="40" fill="none" stroke="#3b82f6" stroke-width="3"/>
+                        <text x="250" y="165" fill="#1e3a8a" font-size="14" font-weight="bold">AI Engine (LLM)</text>
+                      </svg>`,
+                text: `<p><strong>Generative Engine Optimization (GEO)</strong> is not about stuffing keywords; it's about structuring data so AI models (like ChatGPT or Gemini) can cite you as a primary source.</p>
+                       <p>By blending rigid schema markup with the 10% human experience rule, we feed exact facts directly into Large Language Models, bypassing traditional search results.</p>`
+            },
+            'scaling': {
+                title: 'Programmatic Scaling Engine',
+                svg: `<svg width="100%" height="100%" viewBox="0 0 400 200" fill="none">
+                        <path d="M70 70 C70 60 50 50 50 50 C50 50 30 60 30 70 L30 130 C30 140 50 150 50 150 C50 150 70 140 70 130 Z" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="2"/>
+                        <text x="35" y="170" fill="#6d28d9" font-size="12" font-weight="bold">Database</text>
+                        <path d="M70 100 L180 100" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="4" style="animation: dashMove 2s linear infinite;"/>
+                        <rect x="180" y="70" width="80" height="60" rx="5" fill="#1e293b"/>
+                        <text x="195" y="105" fill="#10b981" font-size="10" font-family="monospace">&lt;HTML/&gt;</text>
+                        <path d="M260 100 L320 60" stroke="#cbd5e1" stroke-width="2"/>
+                        <path d="M260 100 L320 100" stroke="#cbd5e1" stroke-width="2"/>
+                        <path d="M260 100 L320 140" stroke="#cbd5e1" stroke-width="2"/>
+                        <rect x="320" y="45" width="50" height="30" rx="3" fill="#fff" stroke="#94a3b8"/>
+                        <rect x="320" y="85" width="50" height="30" rx="3" fill="#fff" stroke="#94a3b8"/>
+                        <rect x="320" y="125" width="50" height="30" rx="3" fill="#fff" stroke="#94a3b8"/>
+                      </svg>`,
+                text: `<p>Instead of manually writing hundreds of pages, we design one master HTML template and connect it to a multi-dimensional database (SQL/CSV).</p>
+                       <p>The system programmatically routes data to generate thousands of uniquely optimized landing pages for ultra-specific queries, scaling traffic instantly.</p>`
+            },
+            'monetization': {
+                title: 'AI Monetization Funnels',
+                svg: `<svg width="100%" height="100%" viewBox="0 0 400 200" fill="none">
+                        <polygon points="50,40 150,40 110,120 90,120" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+                        <text x="75" y="30" fill="#b45309" font-size="12" font-weight="bold">Traffic Entry</text>
+                        <path d="M100 130 L100 160" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4" style="animation: dashMove 2s linear infinite;"/>
+                        <rect x="200" y="130" width="90" height="40" rx="5" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+                        <text x="215" y="155" fill="#047857" font-size="14" font-weight="bold">Commission</text>
+                        <path d="M100 145 L200 145" stroke="#10b981" stroke-width="3"/>
+                        <polygon points="190,140 200,145 190,150" fill="#10b981"/>
+                        <circle cx="100" cy="90" r="15" fill="#3b82f6" style="animation: networkPulse 2s infinite;"/>
+                        <text x="130" y="95" fill="#1e3a8a" font-size="10" font-weight="bold">AI Agent routes user</text>
+                      </svg>`,
+                text: `<p>We don't rely on static, passive affiliate links. We deploy intelligent AI agents that analyze user intent in real-time, matching them with the exact product they need.</p>
+                       <p>These predictive funnels calculate the highest probability of conversion before the user even clicks, maximizing revenue automatically.</p>`
+            }
+        };
+
+        const modalOverlay = document.getElementById('infoModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDiagram = document.getElementById('modalDiagram');
+        const modalText = document.getElementById('modalText');
+
+        function openModal(topic) {
+            const data = modalData[topic];
+            if(data) {
+                modalTitle.innerText = data.title;
+                modalDiagram.innerHTML = data.svg;
+                modalText.innerHTML = data.text;
+                modalOverlay.classList.add('active');
+            }
+        }
+
+        function closeModal() { modalOverlay.classList.remove('active'); }
+        window.onclick = function(event) { if (event.target == modalOverlay) { closeModal(); } }
+    </script>
+
+</body>
+</html>
